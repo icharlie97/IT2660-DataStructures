@@ -1,64 +1,37 @@
-
 public class Main {
   public static void main(String[] args) {
+    // Step 3: Create a map called creditHours
+    MyMap<String, Integer> creditHours = new MyHashMap<>();
 
-    // Step 1 - Create a BST tree object called lab5Tree
-    BST<Integer> lab5Tree = new BST<>();
+    // Step 4: put() the following values
+    creditHours.put("IT-1025", 3);
+    creditHours.put("IT-1050", 3);
+    creditHours.put("IT-1150", 3);
+    creditHours.put("IT-2310", 3);
+    creditHours.put("IT-2320", 4);
+    creditHours.put("IT-2351", 4);
+    creditHours.put("IT-2650", 4);
+    creditHours.put("IT-2660", 4);
+    creditHours.put("IT-2030", 4);
 
-    // Step 2 - Insert the following values: 13, 22, 36, 5, 48, 17, 39, 2, 26, 40, 29, 34, 10
-    lab5Tree.insert(13);
-    lab5Tree.insert(22);
-    lab5Tree.insert(36);
-    lab5Tree.insert(5);
-    lab5Tree.insert(48);
-    lab5Tree.insert(17);
-    lab5Tree.insert(39);
-    lab5Tree.insert(2);
-    lab5Tree.insert(26);
-    lab5Tree.insert(40);
-    lab5Tree.insert(29);
-    lab5Tree.insert(34);
-    lab5Tree.insert(10);
+    // Step 5: Check for the following values
+    System.out.println("IT-1025 is in the map: " + creditHours.containsKey("IT-1025"));
+    System.out.println("IT-2110 is in the map: " + creditHours.containsKey("IT-2110"));
 
-    // Step 3 - Delete the value 17
-    lab5Tree.delete(17);
-
-    // Step 4 - Traverse and output the values using inorder (sorted)
-    System.out.print("Inorder: ");
-    lab5Tree.inorder();
-    System.out.println();
-
-    // Step 5 - Traverse and output the values using postorder
-    System.out.print("Postorder: ");
-    lab5Tree.postorder();
-    System.out.println();
-
-    // Step 6 - Traverse and output the values using preorder
-    System.out.print("Preorder: ");
-    lab5Tree.preorder();
-    System.out.println();
-
-    // Step 7 - Display the result of a search for the value 36
-    System.out.println("Search for 36: " + lab5Tree.search(36));
-
-    // Step 8 - Display the result of a search for the value 37
-    System.out.println("Search for 37: " + lab5Tree.search(37));
-
-    // Step 9 - Using the path() method, display the path from the root to 2
-    System.out.print("Path to 2: ");
-    var path = lab5Tree.path(2);
-    for (var node : path) {
-      System.out.print(node.getElement() + " ");
+    // Step 6: Print all of the values in the map
+    System.out.println("\nAll entries in the map:");
+    for (String key : creditHours.keySet()) {
+      System.out.println(key + ": " + creditHours.get(key) + " credit hours");
     }
-    System.out.println();
 
-    // Step 10 - Display the path from the root to 34
-    System.out.print("Path to 34: ");
-    path = lab5Tree.path(34);
-    for (var node : path) {
-      System.out.print(node.getElement() + " ");
+    // Step 7: Remove IT-2030 and IT-1150
+    creditHours.remove("IT-2030");
+    creditHours.remove("IT-1150");
+
+    // Step 8: Print all of the values in the map
+    System.out.println("\nUpdated entries in the map:");
+    for (String key : creditHours.keySet()) {
+      System.out.println(key + ": " + creditHours.get(key) + " credit hours");
     }
-    System.out.println();
-
   }
 }
